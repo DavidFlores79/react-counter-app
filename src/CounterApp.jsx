@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 
 export const CounterApp = ({ value }) => {
 
-    const [ counter, setCounter ] = useState(0);
+    const [ counter, setCounter ] = useState(value);
 
     const increment = () => {
         console.log('increment');
@@ -19,6 +19,11 @@ export const CounterApp = ({ value }) => {
         setCounter( counter - 1 )
     }
 
+    const reset = () => {
+        console.log('reset');
+        setCounter( value )
+    }
+
 
     return (
         <div>
@@ -26,6 +31,7 @@ export const CounterApp = ({ value }) => {
             <h2>{counter}</h2>
             <button onClick={increment}>+1</button>
             <button onClick={decrement}>-1</button>
+            <button onClick={reset}>Reset</button>
             {/* <FirstApp name="David" edad={ 44 } /> */}
         </div>
     )
